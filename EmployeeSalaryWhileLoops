@@ -1,6 +1,6 @@
-import java.util.Scanner; 
+import java.util.Scanner; //must have this
 
-public class employeeSalaryCode {
+public class examples {
 	public static void main(String[] args) {
 		Scanner in = new Scanner (System.in); 
 		String employeeFirstName = "";
@@ -9,21 +9,27 @@ public class employeeSalaryCode {
 		double hoursWorked = 0.0;
 		double amountEarned = 0.00;
 
-		while (true) {
+
+		boolean done = false;
+		while (!done) {
 			System.out.print("Please Enter Employee first name: ");
-			employeeFirstName = in.next();
+			employeeFirstName = in.nextLine();
 			if (employeeFirstName.equals("QUIT")) {
-				break;
+				done = true;
 			}
-			System.out.print("Please Enter Employee last name: ");
-			employeeLastName = in.next();
-			while (hourlyPay >= 0) {
-				System.out.print("Please Enter your hourly pay: ");
-				hourlyPay = in.nextDouble();
-				while (hoursWorked >= 0) {
+			else {
+				System.out.print("Please Enter Employee last name: ");
+				employeeLastName = in.nextLine();
+				do {
+					System.out.print("Please Enter your hourly pay: ");
+					hourlyPay = in.nextDouble();
+				} while (hourlyPay<=0);
+				do {
 					System.out.print("Please Enter how many hours you worked: ");
 					hoursWorked= in.nextDouble();
-					if (hoursWorked<=40) {
+				} while (hoursWorked <= 0);
+				in.nextLine();
+					if (hoursWorked <=40) {
 						amountEarned = hoursWorked*hourlyPay;
 					}
 					else {
@@ -37,7 +43,6 @@ public class employeeSalaryCode {
 					System.out.println(payCheck);
 				}	
 			}
-		}
 		in.close();
 	}
 }
