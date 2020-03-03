@@ -1,0 +1,43 @@
+import java.util.Scanner; 
+
+public class employeeSalaryCode {
+	public static void main(String[] args) {
+		Scanner in = new Scanner (System.in); 
+		String employeeFirstName = "";
+		String employeeLastName = "";
+		double hourlyPay = 0.0;
+		double hoursWorked = 0.0;
+		double amountEarned = 0.00;
+
+		while (true) {
+			System.out.print("Please Enter Employee first name: ");
+			employeeFirstName = in.next();
+			if (employeeFirstName.equals("QUIT")) {
+				break;
+			}
+			System.out.print("Please Enter Employee last name: ");
+			employeeLastName = in.next();
+			while (hourlyPay >= 0) {
+				System.out.print("Please Enter your hourly pay: ");
+				hourlyPay = in.nextDouble();
+				while (hoursWorked >= 0) {
+					System.out.print("Please Enter how many hours you worked: ");
+					hoursWorked= in.nextDouble();
+					if (hoursWorked<=40) {
+						amountEarned = hoursWorked*hourlyPay;
+					}
+					else {
+						double overtimeHours = hoursWorked - 40;
+						double overtimeHourlyPay = hourlyPay*1.5;
+						double overtimePay = overtimeHours*overtimeHourlyPay;
+						double regularPayHours = (hoursWorked-overtimeHours);
+						amountEarned = (regularPayHours*hourlyPay) + overtimePay;
+					}
+					String payCheck = "Employee Name: " + employeeFirstName + " " + employeeLastName + "\n" + "Hours Worked: " + hoursWorked + "\n" + "Weekly Pay: $" +amountEarned;
+					System.out.println(payCheck);
+				}	
+			}
+		}
+		in.close();
+	}
+}
