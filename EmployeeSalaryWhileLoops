@@ -29,20 +29,20 @@ public class examples {
 					hoursWorked= in.nextDouble();
 				} while (hoursWorked <= 0);
 				in.nextLine();
-					if (hoursWorked <=40) {
-						amountEarned = hoursWorked*hourlyPay;
-					}
-					else {
-						double overtimeHours = hoursWorked - 40;
-						double overtimeHourlyPay = hourlyPay*1.5;
-						double overtimePay = overtimeHours*overtimeHourlyPay;
-						double regularPayHours = (hoursWorked-overtimeHours);
-						amountEarned = (regularPayHours*hourlyPay) + overtimePay;
-					}
-					String payCheck = "Employee Name: " + employeeFirstName + " " + employeeLastName + "\n" + "Hours Worked: " + hoursWorked + "\n" + "Weekly Pay: $" +amountEarned;
-					System.out.println(payCheck);
-				}	
-			}
+				if (hoursWorked <=40) {
+					amountEarned = hoursWorked*hourlyPay;
+				}
+				else {
+					double overtimeHours = hoursWorked - 40;
+					double overtimeHourlyPay = hourlyPay*1.5;
+					double overtimePay = overtimeHours*overtimeHourlyPay;
+					double regularPayHours = (hoursWorked-overtimeHours);
+					amountEarned = (regularPayHours*hourlyPay) + overtimePay;
+				}
+				String payCheck = "Employee Name: " + employeeFirstName + " " + employeeLastName + "\n" + "Hours Worked: " + hoursWorked + "\n" + "Weekly Pay: $" +amountEarned;
+				System.out.println(payCheck);
+			}	
+		}
 		in.close();
 	}
 }
